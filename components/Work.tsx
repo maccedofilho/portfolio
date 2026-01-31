@@ -14,8 +14,7 @@ const Work: React.FC = () => {
     offset: ["start end", "end start"]
   });
 
-  const yBackground = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-  const yHeader = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const yBackground = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   const projects: Project[] = [
     {
@@ -59,9 +58,9 @@ const Work: React.FC = () => {
       title: "Landing Pages",
       category: language === 'pt' ? "Desenvolvimento Web" : "Web Development",
       description: language === 'pt'
-        ? "Landing pages de alta conversão focadas em performance, clareza de UX e geração de leads."
-        : "High-conversion landing pages focused on performance, UX clarity and lead generation.",
-      tags: ["React", "TypeScript"]
+        ? "Landing pages de alta conversão com foco em performance, SEO e experiência do usuário. Desenvolvidas com código limpo, animações fluidas e otimização para Core Web Vitals, maximizando engajamento e geração de leads."
+        : "High-conversion landing pages focused on performance, SEO and user experience. Built with clean code, fluid animations and Core Web Vitals optimization, maximizing engagement and lead generation.",
+      tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"]
     }
   ];
 
@@ -75,6 +74,8 @@ const Work: React.FC = () => {
       id="work" 
       className="relative bg-black py-32 min-h-screen flex flex-col justify-center overflow-hidden scroll-mt-20"
     >
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      
       <motion.div 
           style={{ y: yBackground }}
           className="absolute top-0 right-0 left-0 bottom-0 flex items-center justify-center pointer-events-none select-none z-0"
@@ -87,11 +88,16 @@ const Work: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         
         <motion.div 
-          style={{ y: yHeader }}
           className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div>
-             <h2 className="text-sm font-mono text-gray-500 mb-4 tracking-widest uppercase">{t('work.subtitle')}</h2>
+             <h2 className="text-sm font-mono text-gray-500 mb-4 tracking-widest uppercase">
+               {t('work.subtitle')}
+             </h2>
              <h3 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
                {t('work.title')} <span className="text-gray-600">{t('work.title.span')}</span>
              </h3>
@@ -134,86 +140,69 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   onClick, 
   hasOpenOne 
 }) => {
-  const { t } = useLanguage();
   
   return (
-    <motion.div
+    <div
       onClick={onClick}
-      className={`group relative border-t border-white/10 transition-all duration-500 cursor-pointer
-        ${hasOpenOne && !isOpen ? 'opacity-30 blur-[1px]' : 'opacity-100'}
+      className={`group relative border-t border-white/10 cursor-pointer
+        ${hasOpenOne && !isOpen ? 'opacity-30' : 'opacity-100'} transition-opacity duration-300
       `}
     >
       <div className="py-10 md:py-14 flex flex-col md:flex-row md:items-baseline justify-between gap-6">
         
-        <div className="flex items-baseline gap-6 md:gap-12 transition-transform duration-500 group-hover:translate-x-4">
-          <span className="font-mono text-sm text-gray-600 group-hover:text-white transition-colors">
+        <div className="flex items-baseline gap-6 md:gap-12 transition-transform duration-300 ease-out group-hover:translate-x-4">
+          <span className="font-mono text-sm text-gray-600 group-hover:text-white transition-colors duration-300">
             0{index + 1}
           </span>
-          <h2 className="text-4xl md:text-7xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-500 transition-all">
+          <h2 className="text-4xl md:text-7xl font-bold text-white group-hover:text-gray-400 transition-colors duration-300">
             {project.title}
           </h2>
         </div>
 
         <div className="flex items-center justify-between md:justify-end gap-8 min-w-[200px]">
-          <span className="text-xs font-bold tracking-widest uppercase text-gray-500 group-hover:text-white transition-colors">
+          <span className="text-xs font-bold tracking-widest uppercase text-gray-500 group-hover:text-white transition-colors duration-300">
             {project.category}
           </span>
-          <div className={`transition-transform duration-500 ${isOpen ? 'rotate-90 text-white' : 'text-gray-600'}`}>
+          <div className={`transition-all duration-300 ${isOpen ? 'rotate-45 text-white' : 'text-gray-600 group-hover:text-white'}`}>
             <ArrowUpRight size={28} />
           </div>
         </div>
       </div>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
             className="overflow-hidden cursor-default"
             onClick={(e) => e.stopPropagation()}
           >
-            <motion.div
-                initial={{ opacity: 0, y: -20, rotateX: 25 }}
-                animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                exit={{ opacity: 0, y: -20, rotateX: 25 }}
-                transition={{ duration: 0.5, delay: 0.1, type: "spring", stiffness: 100, damping: 20 }}
-                style={{ transformPerspective: 1000, transformOrigin: "top center" }}
-            >
-                <div className="pb-12 pt-4 md:pl-20 md:pr-10 flex flex-col md:flex-row justify-between items-start gap-8">
-                  
-                  <motion.p 
-                    initial={{ opacity: 0, x: -10 }} 
-                    animate={{ opacity: 1, x: 0 }} 
-                    transition={{ delay: 0.2 }}
-                    className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed"
-                  >
-                    {project.description}
-                  </motion.p>
+            <div className="pb-12 pt-4 md:pl-20 md:pr-10 flex flex-col md:flex-row justify-between items-start gap-8">
+              
+              <p className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed">
+                {project.description}
+              </p>
 
-                  <div className="flex flex-col gap-4 items-start md:items-end">
-                    <div className="flex gap-2 flex-wrap justify-end">
-                      {project.tags.map((tag, i) => (
-                        <motion.span 
-                          key={tag} 
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.25 + (i * 0.05) }}
-                          className="px-3 py-1 text-xs font-mono border border-white/20 rounded-full text-gray-300"
-                        >
-                          {tag}
-                        </motion.span>
-                      ))}
-                    </div>
-                  </div>
-
+              <div className="flex flex-col gap-4 items-start md:items-end">
+                <div className="flex gap-2 flex-wrap justify-end">
+                  {project.tags.map((tag) => (
+                    <span 
+                      key={tag} 
+                      className="px-3 py-1 text-xs font-mono border border-white/20 rounded-full text-gray-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-            </motion.div>
+              </div>
+
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 };
 

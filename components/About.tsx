@@ -1,6 +1,7 @@
-import React, { Suspense, useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import React, { Suspense, useRef, useEffect } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Float, MeshDistortMaterial, Environment, Sphere } from '@react-three/drei';
+import { motion } from 'framer-motion';
 import * as THREE from 'three';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -14,17 +15,40 @@ const CanvasLoader = () => (
 const CleanAvatar = () => {
   const groupRef = useRef<THREE.Group>(null);
   const eyesRef = useRef<THREE.Group>(null);
+  const isMouseInside = useRef(true);
+  const { gl } = useThree();
+
+  useEffect(() => {
+    const canvas = gl.domElement;
+    
+    const handleMouseEnter = () => {
+      isMouseInside.current = true;
+    };
+    
+    const handleMouseLeave = () => {
+      isMouseInside.current = false;
+    };
+
+    canvas.addEventListener('mouseenter', handleMouseEnter);
+    canvas.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      canvas.removeEventListener('mouseenter', handleMouseEnter);
+      canvas.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [gl]);
 
   useFrame((state) => {
     if (!groupRef.current || !eyesRef.current) return;
 
-    const { x, y } = state.pointer;
+    const targetX = isMouseInside.current ? state.pointer.x : 0;
+    const targetY = isMouseInside.current ? state.pointer.y : 0;
     
-    groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, -y * 0.2, 0.1);
-    groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, x * 0.2, 0.1);
+    groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, -targetY * 0.2, 0.1);
+    groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetX * 0.2, 0.1);
 
-    eyesRef.current.position.x = THREE.MathUtils.lerp(eyesRef.current.position.x, x * 0.15, 0.1);
-    eyesRef.current.position.y = THREE.MathUtils.lerp(eyesRef.current.position.y, (y * 0.15) + 0.1, 0.1);
+    eyesRef.current.position.x = THREE.MathUtils.lerp(eyesRef.current.position.x, targetX * 0.15, 0.1);
+    eyesRef.current.position.y = THREE.MathUtils.lerp(eyesRef.current.position.y, (targetY * 0.15) + 0.1, 0.1);
   });
 
   return (
@@ -79,15 +103,49 @@ const About: React.FC = () => {
   return (
     <section id="about" className="relative h-screen bg-neutral-950 text-white overflow-hidden flex flex-col md:flex-row items-center justify-center scroll-mt-20">
       
-      <div className="absolute top-20 left-0 w-full z-10 px-6 text-center pointer-events-none md:pointer-events-auto">
-         <h2 className="text-sm font-mono text-gray-400 mb-2 tracking-widest uppercase">{t('about.subtitle')}</h2>
-         <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">
+      <motion.div 
+        className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"
+        initial={{ scaleX: 0, opacity: 0 }}
+        whileInView={{ scaleX: 1, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+      />
+      
+      <motion.div 
+        className="absolute top-20 left-0 w-full z-10 px-6 text-center pointer-events-none md:pointer-events-auto"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+         <motion.h2 
+           className="text-sm font-mono text-gray-400 mb-2 tracking-widest uppercase"
+           initial={{ opacity: 0 }}
+           whileInView={{ opacity: 1 }}
+           viewport={{ once: true }}
+           transition={{ delay: 0.2 }}
+         >
+           {t('about.subtitle')}
+         </motion.h2>
+         <motion.h3 
+           className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4"
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ delay: 0.3, duration: 0.6 }}
+         >
            {t('about.title')} <span className="text-purple-400">{t('about.title.span')}</span>
-         </h3>
-         <p className="text-gray-400 max-w-lg mx-auto text-sm md:text-base leading-relaxed">
+         </motion.h3>
+         <motion.p 
+           className="text-gray-400 max-w-lg mx-auto text-sm md:text-base leading-relaxed"
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ delay: 0.5, duration: 0.6 }}
+         >
            {t('about.desc')}
-         </p>
-      </div>
+         </motion.p>
+      </motion.div>
 
       <div className="absolute inset-0 z-0 w-full h-full">
         <Suspense fallback={<CanvasLoader />}>

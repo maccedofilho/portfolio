@@ -11,5 +11,11 @@ declare module 'framer-motion' {
     ref?: React.Ref<HTMLElement>;
     id?: string;
     key?: React.Key;
+    href?: string;
+    target?: string;
+    rel?: string;
+    'aria-label'?: string;
+    type?: 'button' | 'submit' | 'reset';
+    disabled?: boolean;
   }
 }
