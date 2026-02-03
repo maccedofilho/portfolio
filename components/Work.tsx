@@ -95,11 +95,11 @@ const Work: React.FC = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div>
-             <h2 className="text-sm font-mono text-gray-500 mb-4 tracking-widest uppercase">
+             <h2 className="text-sm font-mono text-gray-400 mb-4 tracking-widest uppercase">
                {t('work.subtitle')}
              </h2>
              <h3 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-               {t('work.title')} <span className="text-gray-600">{t('work.title.span')}</span>
+               {t('work.title')} <span className="text-gray-500">{t('work.title.span')}</span>
              </h3>
           </div>
           <p className="text-gray-400 max-w-sm text-right hidden md:block">
@@ -151,7 +151,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
       <div className="py-10 md:py-14 flex flex-col md:flex-row md:items-baseline justify-between gap-6">
         
         <div className="flex items-baseline gap-6 md:gap-12 transition-transform duration-300 ease-out group-hover:translate-x-4">
-          <span className="font-mono text-sm text-gray-600 group-hover:text-white transition-colors duration-300">
+          <span className="font-mono text-sm text-gray-500 group-hover:text-white transition-colors duration-300">
             0{index + 1}
           </span>
           <h2 className="text-4xl md:text-7xl font-bold text-white group-hover:text-gray-400 transition-colors duration-300">
@@ -160,11 +160,11 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         </div>
 
         <div className="flex items-center justify-between md:justify-end gap-8 min-w-[200px]">
-          <span className="text-xs font-bold tracking-widest uppercase text-gray-500 group-hover:text-white transition-colors duration-300">
+          <span className="text-xs font-bold tracking-widest uppercase text-gray-400 group-hover:text-white transition-colors duration-300">
             {project.category}
           </span>
-          <div className={`transition-all duration-300 ${isOpen ? 'rotate-45 text-white' : 'text-gray-600 group-hover:text-white'}`}>
-            <ArrowUpRight size={28} />
+          <div className={`transition-all duration-300 ${isOpen ? 'rotate-45 text-white' : 'text-gray-500 group-hover:text-white'}`}>
+            <ArrowUpRight size={28} aria-hidden="true" />
           </div>
         </div>
       </div>

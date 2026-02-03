@@ -125,10 +125,12 @@ const Contact: React.FC = () => {
                 transition={{ delay: 0.4 }}
               >
                 <div className="space-y-2">
-                  <label className="text-sm text-gray-500 uppercase font-bold tracking-wider">{t('contact.form.name')}</label>
+                  <label htmlFor="name" className="text-sm text-gray-400 uppercase font-bold tracking-wider">{t('contact.form.name')}</label>
                   <input 
                     type="text"
+                    id="name"
                     name="name"
+                    autoComplete="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -136,10 +138,12 @@ const Contact: React.FC = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm text-gray-500 uppercase font-bold tracking-wider">{t('contact.form.email')}</label>
+                  <label htmlFor="email" className="text-sm text-gray-400 uppercase font-bold tracking-wider">{t('contact.form.email')}</label>
                   <input 
                     type="email"
+                    id="email"
                     name="email"
+                    autoComplete="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -155,9 +159,10 @@ const Contact: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
               >
-                <label className="text-sm text-gray-500 uppercase font-bold tracking-wider">{t('contact.form.message')}</label>
+                <label htmlFor="message" className="text-sm text-gray-400 uppercase font-bold tracking-wider">{t('contact.form.message')}</label>
                 <textarea 
                   rows={4}
+                  id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
@@ -184,13 +189,14 @@ const Contact: React.FC = () => {
           </motion.div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
           <p>© {new Date().getFullYear()} Ricardo Macedo. {t('contact.footer')}</p>
           <div className="flex gap-6">
             <a 
               href="https://github.com/maccedofilho" 
               target="_blank" 
               rel="noopener noreferrer"
+              aria-label="GitHub"
               className="hover:text-white hover:-translate-y-0.5 transition-all duration-300"
             >
               GitHub
@@ -199,6 +205,7 @@ const Contact: React.FC = () => {
               href="https://www.linkedin.com/in/ricardomacedofilho/" 
               target="_blank" 
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
               className="hover:text-white hover:-translate-y-0.5 transition-all duration-300"
             >
               LinkedIn

@@ -75,9 +75,10 @@ const Navbar: React.FC = () => {
 
           <button 
             onClick={toggleLanguage}
+            aria-label={language === 'en' ? 'Switch to Portuguese' : 'Mudar para Inglês'}
             className="flex items-center gap-2 text-xs font-bold border border-gray-700 rounded-full px-3 py-1 hover:border-purple-500 hover:text-purple-400 transition-all"
           >
-            <Globe size={14} />
+            <Globe size={14} aria-hidden="true" />
             <span>{language.toUpperCase()}</span>
           </button>
         </div>
@@ -85,6 +86,7 @@ const Navbar: React.FC = () => {
         <div className="md:hidden flex items-center gap-4">
             <button 
                 onClick={toggleLanguage}
+                aria-label={language === 'en' ? 'Switch to Portuguese' : 'Mudar para Inglês'}
                 className="text-xs font-bold border border-gray-700 rounded-full px-2 py-1 text-gray-300"
             >
                 {language.toUpperCase()}
@@ -93,8 +95,10 @@ const Navbar: React.FC = () => {
               ref={buttonRef}
               className="text-white"
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
             >
-              {isOpen ? <X /> : <Menu />}
+              {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
             </button>
         </div>
       </div>
