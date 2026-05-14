@@ -2,11 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import Scene from './Scene';
-import { useLanguage } from '../context/LanguageContext';
 
 const Hero: React.FC = () => {
-  const { t } = useLanguage();
-
   return (
     <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-neutral-900 to-black">
       
@@ -48,7 +45,7 @@ const Hero: React.FC = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                {t('hero.role')}
+                Software Engineer
               </motion.span>
             </motion.h1>
             <motion.p 
@@ -57,7 +54,7 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              {t('hero.desc')}
+              Full Stack with product vision. I build robust solutions that solve real problems and scale with the business.
             </motion.p>
 
             <motion.div 
@@ -67,10 +64,10 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.7 }}
             >
               <a href="#work" className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 hover:scale-105 transition-all duration-300">
-                {t('hero.btn.projects')}
+                View Projects
               </a>
               <a href="#contact" className="px-8 py-3 border border-gray-700 rounded-full hover:border-purple-500 hover:text-purple-500 hover:scale-105 transition-all duration-300">
-                {t('hero.btn.contact')}
+                Contact Me
               </a>
             </motion.div>
 
@@ -94,7 +91,7 @@ const Hero: React.FC = () => {
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ delay: 1, duration: 2, repeat: Infinity }}
       >
-        <span className="text-xs uppercase tracking-widest">{t('hero.scroll')}</span>
+        <span className="text-xs uppercase tracking-widest">Scroll</span>
         <ArrowDown size={16} />
       </motion.div>
     </section>

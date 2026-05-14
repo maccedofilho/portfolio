@@ -2,12 +2,10 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Project } from '../types';
-import { useLanguage } from '../context/LanguageContext';
 
 const Work: React.FC = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const { t, language } = useLanguage();
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLElement>(null!);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -20,46 +18,29 @@ const Work: React.FC = () => {
     {
       id: 1,
       title: "Vehicle SaaS",
-      category: language === 'pt' ? "SaaS Full Stack" : "Full Stack SaaS",
-      description: language === 'pt' 
-        ? "Plataforma para gestão veicular, com foco em controle operacional, organização de dados, automação de processos e escalabilidade. Desenvolvida com boas práticas, arquitetura sólida e pronta para crescimento real."
-        : "Vehicle management platform focused on operational control, data organization, process automation and scalability. Built with best practices, solid architecture and ready for real growth.",
+      category: "Full Stack SaaS",
+      description: "Vehicle management platform focused on operational control, data organization, process automation and scalability. Built with best practices, solid architecture and ready for real growth.",
       tags: ["TypeScript", "React", "Node.js", "PostgreSQL", "Docker"]
     },
     {
       id: 2,
-      title: "Core Auth API",
-      category: language === 'pt' ? "Engenharia de Segurança" : "Security Engineering",
-      description: language === 'pt'
-        ? "Sistema de autenticação pronto para produção com RBAC, rotação de refresh token, controle de sessão, rate limiting e bloqueio de conta. Totalmente documentado com OpenAPI."
-        : "Production-ready authentication system featuring RBAC, refresh token rotation, session control, rate limiting and account lockout. Fully documented with OpenAPI.",
-      tags: ["Java 21", "Spring Boot 3", "Security", "JWT"]
+      title: "Custom Systems",
+      category: "Full Stack Development",
+      description: "Tailor-made systems built to fit specific business workflows. Clean architecture, type-safe APIs and modular design that adapts as the product evolves, prioritizing maintainability and real operational impact.",
+      tags: ["TypeScript", "React", "Node.js", "PostgreSQL", "Docker"]
     },
     {
       id: 3,
-      title: "Metrics Dashboard",
-      category: language === 'pt' ? "Visualização de Dados" : "Data Visualization",
-      description: language === 'pt'
-        ? "Dashboard de visualização de dados e métricas operacionais voltado para gestão de obras, projetado para uma equipe de cerca de 20 pessoas. Suporta o armazenamento e acompanhamento de múltiplos projetos, com foco em organização, visibilidade do progresso e apoio à tomada de decisão."
-        : "Data visualization and operational metrics dashboard for construction management, designed for a team of around 20 people. Supports storage and tracking of multiple projects, focusing on organization, progress visibility and decision-making support.",
-      tags: ["React", "TypeScript", "PostgreSQL"]
+      title: "Security SaaS",
+      category: "Security Engineering",
+      description: "Production-ready security platform delivering authentication, authorization and account protection as a service. RBAC, refresh token rotation, rate limiting and account lockout, fully documented and ready to integrate.",
+      tags: ["Java 21", "Spring Boot 3", "Security", "JWT"]
     },
     {
       id: 4,
-      title: "Payment Gateway",
-      category: language === 'pt' ? "Engenharia Financeira" : "Financial Engineering",
-      description: language === 'pt'
-        ? "Simulador de gateway de pagamento estilo Stripe, focado em engenharia financeira real: máquina de estados, idempotência, webhooks assinados e ledger interno, com arquitetura sólida, segurança e zero dependência externa."
-        : "Stripe-style payment gateway simulator focused on real financial engineering: state machine, idempotency, signed webhooks and internal ledger, with solid architecture, security and zero external dependencies.",
-      tags: ["Java 21", "Spring Boot 3", "PostgreSQL", "Docker"]
-    },
-    {
-      id: 5,
       title: "Landing Pages",
-      category: language === 'pt' ? "Desenvolvimento Web" : "Web Development",
-      description: language === 'pt'
-        ? "Landing pages de alta conversão com foco em performance, SEO e experiência do usuário. Desenvolvidas com código limpo, animações fluidas e otimização para Core Web Vitals, maximizando engajamento e geração de leads."
-        : "High-conversion landing pages focused on performance, SEO and user experience. Built with clean code, fluid animations and Core Web Vitals optimization, maximizing engagement and lead generation.",
+      category: "Web Development",
+      description: "Conversion-driven landing pages engineered for speed, SEO and clarity. Pixel-tight layouts, fluid motion and Core Web Vitals optimization to turn traffic into qualified leads.",
       tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"]
     }
   ];
@@ -69,25 +50,25 @@ const Work: React.FC = () => {
   };
 
   return (
-    <section 
+    <section
       ref={containerRef}
-      id="work" 
+      id="work"
       className="relative bg-black py-32 min-h-screen flex flex-col justify-center overflow-hidden scroll-mt-20"
     >
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-      
-      <motion.div 
+
+      <motion.div
           style={{ y: yBackground }}
           className="absolute top-0 right-0 left-0 bottom-0 flex items-center justify-center pointer-events-none select-none z-0"
       >
           <h1 className="text-[12rem] md:text-[24rem] font-bold text-white opacity-[0.03] tracking-tighter whitespace-nowrap">
-              {language === 'pt' ? 'PROJETOS' : 'WORK'}
+              WORK
           </h1>
       </motion.div>
 
       <div className="container mx-auto px-6 relative z-10">
-        
-        <motion.div 
+
+        <motion.div
           className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -96,22 +77,22 @@ const Work: React.FC = () => {
         >
           <div>
              <h2 className="text-sm font-mono text-gray-400 mb-4 tracking-widest uppercase">
-               {t('work.subtitle')}
+               Selected Works
              </h2>
              <h3 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-               {t('work.title')} <span className="text-gray-500">{t('work.title.span')}</span>
+               Engineering <span className="text-gray-500">Cases</span>
              </h3>
           </div>
           <p className="text-gray-400 max-w-sm text-right hidden md:block">
-            {t('work.hover')}
+            Click to explore technical details.
           </p>
         </motion.div>
 
         <div className="flex flex-col">
           {projects.map((project, index) => (
-            <ProjectItem 
-              key={project.id} 
-              project={project} 
+            <ProjectItem
+              key={project.id}
+              project={project}
               index={index}
               isOpen={expandedIndex === index}
               onClick={() => handleItemClick(index)}
@@ -133,14 +114,14 @@ interface ProjectItemProps {
   hasOpenOne: boolean;
 }
 
-const ProjectItem: React.FC<ProjectItemProps> = ({ 
-  project, 
-  index, 
-  isOpen, 
-  onClick, 
-  hasOpenOne 
+const ProjectItem: React.FC<ProjectItemProps> = ({
+  project,
+  index,
+  isOpen,
+  onClick,
+  hasOpenOne
 }) => {
-  
+
   return (
     <div
       onClick={onClick}
@@ -149,7 +130,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
       `}
     >
       <div className="py-10 md:py-14 flex flex-col md:flex-row md:items-baseline justify-between gap-6">
-        
+
         <div className="flex items-baseline gap-6 md:gap-12 transition-transform duration-300 ease-out group-hover:translate-x-4">
           <span className="font-mono text-sm text-gray-500 group-hover:text-white transition-colors duration-300">
             0{index + 1}
@@ -180,7 +161,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
             onClick={(e) => e.stopPropagation()}
           >
             <div className="pb-12 pt-4 md:pl-20 md:pr-10 flex flex-col md:flex-row justify-between items-start gap-8">
-              
+
               <p className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed">
                 {project.description}
               </p>
@@ -188,8 +169,8 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
               <div className="flex flex-col gap-4 items-start md:items-end">
                 <div className="flex gap-2 flex-wrap justify-end">
                   {project.tags.map((tag) => (
-                    <span 
-                      key={tag} 
+                    <span
+                      key={tag}
                       className="px-3 py-1 text-xs font-mono border border-white/20 rounded-full text-gray-300"
                     >
                       {tag}

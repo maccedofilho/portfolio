@@ -1,20 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Globe } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const { t, language, setLanguage } = useLanguage();
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const navItems = [
-    { label: t('nav.home'), href: '#home' },
-    { label: t('nav.work'), href: '#work' },
-    { label: t('nav.about'), href: '#about' },
-    { label: t('nav.contact'), href: '#contact' },
+    { label: 'Home', href: '#home' },
+    { label: 'Work', href: '#work' },
+    { label: 'About', href: '#about' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   useEffect(() => {
@@ -25,7 +23,6 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Fechar menu ao clicar fora
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -42,10 +39,6 @@ const Navbar: React.FC = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen]);
-
-  const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'pt' : 'en');
-  };
 
   return (
     <motion.nav
@@ -72,25 +65,9 @@ const Navbar: React.FC = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full" />
             </a>
           ))}
-
-          <button 
-            onClick={toggleLanguage}
-            aria-label={language === 'en' ? 'Switch to Portuguese' : 'Mudar para Inglês'}
-            className="flex items-center gap-2 text-xs font-bold border border-gray-700 rounded-full px-3 py-1 hover:border-purple-500 hover:text-purple-400 transition-all"
-          >
-            <Globe size={14} aria-hidden="true" />
-            <span>{language.toUpperCase()}</span>
-          </button>
         </div>
 
         <div className="md:hidden flex items-center gap-4">
-            <button 
-                onClick={toggleLanguage}
-                aria-label={language === 'en' ? 'Switch to Portuguese' : 'Mudar para Inglês'}
-                className="text-xs font-bold border border-gray-700 rounded-full px-2 py-1 text-gray-300"
-            >
-                {language.toUpperCase()}
-            </button>
             <button
               ref={buttonRef}
               className="text-white"

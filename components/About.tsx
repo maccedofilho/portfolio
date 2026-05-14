@@ -3,7 +3,6 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Float, MeshDistortMaterial, Environment, Sphere } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import * as THREE from 'three';
-import { useLanguage } from '../context/LanguageContext';
 
 const CanvasLoader = () => (
   <div className="w-full h-full flex items-center justify-center bg-neutral-950">
@@ -98,8 +97,6 @@ const CleanAvatar = () => {
 };
 
 const About: React.FC = () => {
-  const { t } = useLanguage();
-
   return (
     <section id="about" className="relative h-screen bg-neutral-950 text-white overflow-hidden flex flex-col md:flex-row items-center justify-center scroll-mt-20">
       
@@ -125,7 +122,7 @@ const About: React.FC = () => {
            viewport={{ once: true }}
            transition={{ delay: 0.2 }}
          >
-           {t('about.subtitle')}
+           About Me
          </motion.h2>
          <motion.h3 
            className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4"
@@ -134,7 +131,7 @@ const About: React.FC = () => {
            viewport={{ once: true }}
            transition={{ delay: 0.3, duration: 0.6 }}
          >
-           {t('about.title')} <span className="text-purple-400">{t('about.title.span')}</span>
+           Digital <span className="text-purple-400">Alchemist</span>
          </motion.h3>
          <motion.p 
            className="text-gray-400 max-w-lg mx-auto text-sm md:text-base leading-relaxed"
@@ -143,7 +140,7 @@ const About: React.FC = () => {
            viewport={{ once: true }}
            transition={{ delay: 0.5, duration: 0.6 }}
          >
-           {t('about.desc')}
+           +4 anos of Full Stack development experience, focused on building solid and well-architected solutions. Software Engineering student, turning coffee into clean, scalable, production-ready code.
          </motion.p>
       </motion.div>
 
