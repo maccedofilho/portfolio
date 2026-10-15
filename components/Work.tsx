@@ -24,14 +24,14 @@ const Work: React.FC = () => {
     },
     {
       id: 2,
-      title: "EasyStudy",
+      title: "Study SaaS",
       category: "Study Platform",
       description: "SaaS platform for studying and ENEM/university entrance exam prep, with practice tests and performance tracking. Turborepo monorepo with a Next.js front end and a NestJS API backed by PostgreSQL, Prisma, Redis and BullMQ, containerized with Docker.",
       tags: ["Next.js", "NestJS", "TypeScript", "PostgreSQL", "Prisma", "Redis", "BullMQ", "Turborepo"]
     },
     {
       id: 3,
-      title: "VirtualRift",
+      title: "Security SaaS",
       category: "Security Platform",
       description: "Multi-tenant SaaS for automated vulnerability scanning across source code, web applications, REST/GraphQL APIs and infrastructure, returning actionable findings with remediation guidance. Java 21 microservices orchestrated over Kafka, a React dashboard and CI security gates.",
       tags: ["Java 21", "Spring Boot 3", "Kafka", "React", "TypeScript", "Docker", "Helm"],
