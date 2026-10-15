@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight, Github } from 'lucide-react';
 import { Project } from '../types';
+import { reveal, revealLine } from '../animations';
 
 const Work: React.FC = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -133,29 +134,34 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   return (
     <div
       onClick={onClick}
-      className={`group relative border-t border-white/10 cursor-pointer
+      className={`group relative cursor-pointer
         ${hasOpenOne && !isOpen ? 'opacity-30' : 'opacity-100'} transition-opacity duration-300
       `}
     >
+      <motion.div
+        className="absolute top-0 left-0 w-full h-px bg-white/10 origin-left"
+        {...revealLine()}
+      />
+
       <div className="py-10 md:py-14 flex flex-col md:flex-row md:items-baseline justify-between gap-6">
 
         <div className="flex items-baseline gap-6 md:gap-12 transition-transform duration-300 ease-out group-hover:translate-x-4">
-          <span className="font-mono text-sm text-gray-500 group-hover:text-white transition-colors duration-300">
+          <motion.span className="font-mono text-sm text-gray-500 group-hover:text-white transition-colors duration-300" {...reveal(0, 16)}>
             0{index + 1}
-          </span>
-          <h2 className="text-4xl md:text-7xl font-bold text-white group-hover:text-gray-400 transition-colors duration-300">
+          </motion.span>
+          <motion.h2 className="text-4xl md:text-7xl font-bold text-white group-hover:text-gray-400 transition-colors duration-300" {...reveal(0.08, 48)}>
             {project.title}
-          </h2>
+          </motion.h2>
         </div>
 
-        <div className="flex items-center justify-between md:justify-end gap-8 min-w-[200px]">
+        <motion.div className="flex items-center justify-between md:justify-end gap-8 min-w-[200px]" {...reveal(0.2, 16)}>
           <span className="text-xs font-bold tracking-widest uppercase text-gray-400 group-hover:text-white transition-colors duration-300">
             {project.category}
           </span>
           <div className={`transition-all duration-300 ${isOpen ? 'rotate-45 text-white' : 'text-gray-500 group-hover:text-white'}`}>
             <ArrowUpRight size={28} aria-hidden="true" />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <AnimatePresence mode="wait">

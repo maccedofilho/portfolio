@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExperienceItem } from '../types';
+import { reveal, revealLine } from '../animations';
 
 const experiences: ExperienceItem[] = [
   {
@@ -68,50 +69,56 @@ const Experience: React.FC = () => {
 
         <div className="flex flex-col">
           {experiences.map((experience) => (
-            <motion.div
+            <div
               key={experience.id}
-              className="border-t border-white/10 py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-8"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="relative py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-8"
             >
+              <motion.div
+                className="absolute top-0 left-0 w-full h-px bg-white/10 origin-left"
+                {...revealLine()}
+              />
+
               <div className="md:col-span-4">
-                <span className="font-mono text-sm text-purple-400">
+                <motion.span className="block font-mono text-sm text-purple-400" {...reveal(0, 16)}>
                   {experience.period}
-                </span>
-                <h4 className="text-4xl md:text-5xl font-bold text-white mt-3 mb-2">
+                </motion.span>
+                <motion.h4 className="text-4xl md:text-5xl font-bold text-white mt-3 mb-2" {...reveal(0.08)}>
                   {experience.company}
-                </h4>
-                <span className="text-xs font-bold tracking-widest uppercase text-gray-400">
+                </motion.h4>
+                <motion.span className="block text-xs font-bold tracking-widest uppercase text-gray-400" {...reveal(0.16, 16)}>
                   {experience.type}
-                </span>
+                </motion.span>
               </div>
 
               <div className="md:col-span-8">
-                <h5 className="text-xl md:text-2xl font-semibold text-white mb-6">
+                <motion.h5 className="text-xl md:text-2xl font-semibold text-white mb-6" {...reveal(0.1)}>
                   {experience.role}
-                </h5>
+                </motion.h5>
                 <ul className="space-y-3 mb-8">
-                  {experience.highlights.map((highlight) => (
-                    <li key={highlight} className="flex gap-3 text-gray-300 leading-relaxed">
+                  {experience.highlights.map((highlight, i) => (
+                    <motion.li
+                      key={highlight}
+                      className="flex gap-3 text-gray-300 leading-relaxed"
+                      {...reveal(0.15 + i * 0.06, 20)}
+                    >
                       <span className="mt-2.5 w-1.5 h-1.5 shrink-0 rounded-full bg-purple-500" aria-hidden="true" />
                       {highlight}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
                 <div className="flex gap-2 flex-wrap">
-                  {experience.tags.map((tag) => (
-                    <span
+                  {experience.tags.map((tag, i) => (
+                    <motion.span
                       key={tag}
                       className="px-3 py-1 text-xs font-mono border border-white/20 rounded-full text-gray-300"
+                      {...reveal(0.1 + i * 0.04, 12)}
                     >
                       {tag}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
