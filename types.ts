@@ -4,6 +4,7 @@ export interface Project {
   category: string;
   description: string;
   tags: string[];
+  link?: string;
 }
 
 export interface ExperienceItem {

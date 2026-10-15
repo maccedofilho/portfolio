@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Github } from 'lucide-react';
 import { Project } from '../types';
 
 const Work: React.FC = () => {
@@ -17,41 +17,35 @@ const Work: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "Vehicle SaaS",
-      category: "Full Stack SaaS",
-      description: "Vehicle management platform focused on operational control, data organization, process automation and scalability. Built with best practices, solid architecture and ready for real growth.",
-      tags: ["TypeScript", "React", "Node.js", "PostgreSQL", "Docker"]
-    },
-    {
-      id: 2,
-      title: "AI Applications",
-      category: "AI Engineering",
-      description: "Web applications and features powered by large language models, plugged straight into business workflows. LLM integrations and automation flows that take repetitive work off people's hands and turn data into decisions.",
-      tags: ["LLMs", "LangChain", "n8n", "Node.js", "TypeScript"]
-    },
-    {
-      id: 3,
-      title: "AI Bots",
-      category: "Automation",
-      description: "WhatsApp and Telegram bots with AI capabilities that handle conversations and operational tasks automatically, integrated with the systems and data each business already runs on.",
-      tags: ["WhatsApp", "Telegram", "LLMs", "n8n", "Node.js"]
-    },
-    {
-      id: 4,
       title: "Custom Systems",
       category: "Full Stack Development",
       description: "10+ tailor-made web systems that centralize internal processes, connect teams and simplify day-to-day operations. APIs, business rules and integrations designed for each workflow, with ongoing maintenance and support.",
       tags: ["Java", "Spring Boot", "NestJS", "React", "Angular", "PostgreSQL", "MySQL"]
     },
     {
-      id: 5,
-      title: "Security SaaS",
-      category: "Security Engineering",
-      description: "Production-ready security platform delivering authentication, authorization and account protection as a service. RBAC, refresh token rotation, rate limiting and account lockout, fully documented and ready to integrate.",
-      tags: ["Java 21", "Spring Boot 3", "Security", "JWT"]
+      id: 2,
+      title: "EasyStudy",
+      category: "Study Platform",
+      description: "SaaS platform for studying and ENEM/university entrance exam prep, with practice tests and performance tracking. Turborepo monorepo with a Next.js front end and a NestJS API backed by PostgreSQL, Prisma, Redis and BullMQ, containerized with Docker.",
+      tags: ["Next.js", "NestJS", "TypeScript", "PostgreSQL", "Prisma", "Redis", "BullMQ", "Turborepo"]
     },
     {
-      id: 6,
+      id: 3,
+      title: "VirtualRift",
+      category: "Security Platform",
+      description: "Multi-tenant SaaS for automated vulnerability scanning across source code, web applications, REST/GraphQL APIs and infrastructure, returning actionable findings with remediation guidance. Java 21 microservices orchestrated over Kafka, a React dashboard and CI security gates.",
+      tags: ["Java 21", "Spring Boot 3", "Kafka", "React", "TypeScript", "Docker", "Helm"],
+      link: "https://github.com/maccedofilho/virtualrift"
+    },
+    {
+      id: 4,
+      title: "AI Bots",
+      category: "Automation",
+      description: "WhatsApp and Telegram bots with AI capabilities that handle conversations and operational tasks automatically, integrated with the systems and data each business already runs on.",
+      tags: ["WhatsApp", "Telegram", "LLMs", "n8n", "Node.js"]
+    },
+    {
+      id: 5,
       title: "Landing Pages",
       category: "Web Development",
       description: "10+ conversion-driven landing pages built and launched to present services and turn visitors into clients. Fast, SEO-friendly layouts with fluid motion, deployed on Vercel.",
@@ -191,6 +185,17 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
                     </span>
                   ))}
                 </div>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-purple-400 transition-colors duration-300"
+                  >
+                    <Github size={16} aria-hidden="true" />
+                    View on GitHub
+                  </a>
+                )}
               </div>
 
             </div>
