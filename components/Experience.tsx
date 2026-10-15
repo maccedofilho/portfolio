@@ -7,31 +7,31 @@ const experiences: ExperienceItem[] = [
   {
     id: 1,
     company: "Auto Crivo",
-    role: "Full Stack Software Developer",
-    type: "Contractor · Remote",
-    period: "Sep 2024 — Oct 2025",
+    role: "Desenvolvedor de Software Full Stack",
+    type: "PJ · Remoto",
+    period: "Set 2024 — Out 2025",
     highlights: [
-      "Built and maintained 50+ REST APIs with Node.js, NestJS and TypeScript.",
-      "Owned every screen of the platform's front end, built with React and Next.js.",
-      "Optimized back-end queries and flows, cutting request response times.",
-      "Connected interfaces, back-end services and PostgreSQL in a system used daily by hundreds of users.",
-      "Took part in architecture decisions, feature work, testing, code review, deploys and maintenance."
+      "Desenvolvimento e manutenção de mais de 50 APIs REST com Node.js, NestJS e TypeScript.",
+      "Responsável por todas as telas da plataforma, desenvolvidas com React e Next.js.",
+      "Otimização de consultas e fluxos do back-end, reduzindo o tempo de resposta das requisições.",
+      "Integração entre interfaces, serviços de back-end e PostgreSQL em um sistema usado diariamente por centenas de usuários.",
+      "Participação em decisões de arquitetura, implementação de funcionalidades, testes, code review, deploy e manutenção."
     ],
     tags: ["Node.js", "NestJS", "TypeScript", "React", "Next.js", "PostgreSQL", "Docker", "CI/CD"]
   },
   {
     id: 2,
-    company: "Freelance",
-    role: "Full Stack Web Developer",
-    type: "Contractor · Remote",
-    period: "Jun 2022 — Present",
+    company: "Freelancer",
+    role: "Desenvolvedor Web Full Stack",
+    type: "PJ · Remoto",
+    period: "Jun 2022 — Atual",
     highlights: [
-      "Delivered 10+ web systems that centralize internal processes, connect teams and simplify operations.",
-      "Built and launched 10+ landing pages focused on presenting services and converting clients.",
-      "Implemented APIs, business rules and integrations with Java, Spring Boot, Node.js and NestJS.",
-      "Shipped AI-powered features, integrating language models into web systems and automation flows.",
-      "Created AI bots for WhatsApp and Telegram that automate conversations and operational tasks.",
-      "Deployed and ran apps on DigitalOcean VPS servers, with front ends and landing pages on Vercel."
+      "Mais de 10 sistemas web entregues para centralizar processos internos, integrar áreas e simplificar tarefas operacionais.",
+      "Mais de 10 landing pages criadas e publicadas para apresentar serviços e converter clientes.",
+      "Implementação de APIs, regras de negócio e integrações com Java, Spring Boot, Node.js e NestJS.",
+      "Funcionalidades com inteligência artificial, integrando modelos de linguagem a sistemas web e fluxos de automação.",
+      "Bots para WhatsApp e Telegram com IA para automatizar interações e tarefas operacionais.",
+      "Deploy e administração de aplicações em VPS na DigitalOcean, com interfaces e landing pages publicadas na Vercel."
     ],
     tags: ["Java", "Spring Boot", "Node.js", "NestJS", "React", "Next.js", "Angular", "PostgreSQL", "MySQL", "LLMs"]
   }
@@ -56,14 +56,14 @@ const Experience: React.FC = () => {
         >
           <div>
              <h2 className="text-sm font-mono text-gray-400 mb-4 tracking-widest uppercase">
-               Career
+               Carreira
              </h2>
              <h3 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-               Professional <span className="text-gray-500">Experience</span>
+               Experiência <span className="text-gray-500">Profissional</span>
              </h3>
           </div>
           <p className="text-gray-400 max-w-sm md:text-right">
-            4+ years building, evolving and maintaining web applications in production.
+            +4 anos criando, evoluindo e mantendo aplicações web em produção.
           </p>
         </motion.div>
 

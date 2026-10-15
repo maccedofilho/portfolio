@@ -9,11 +9,11 @@ const Navbar: React.FC = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Work', href: '#work' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Início', href: '#home' },
+    { label: 'Experiência', href: '#experience' },
+    { label: 'Projetos', href: '#work' },
+    { label: 'Sobre', href: '#about' },
+    { label: 'Contato', href: '#contact' },
   ];
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
               ref={buttonRef}
               className="text-white"
               onClick={() => setIsOpen(!isOpen)}
-              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
               aria-expanded={isOpen}
             >
               {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}

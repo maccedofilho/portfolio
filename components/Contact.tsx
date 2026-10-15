@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
             <h1 className="text-[20vw] font-bold text-white whitespace-nowrap leading-none">
-                CONNECT
+                CONEXÃO
             </h1>
         </motion.div>
 
@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              Ready to scale?
+              Pronto para escalar?
             </motion.h2>
             <motion.p
               className="text-gray-400 text-lg max-w-md mb-8"
@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              I am available for new opportunities in full-stack development. Let's build something robust together.
+              Estou disponível para novas oportunidades em desenvolvimento full stack. Vamos construir algo robusto juntos.
             </motion.p>
 
             <div className="space-y-4">
@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
                 <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
                     <MapPin size={18} />
                 </div>
-                <span className="text-lg">Joinville, SC, Brazil · Remote</span>
+                <span className="text-lg">Joinville, SC, Brasil · Remoto</span>
               </div>
             </div>
           </motion.div>
@@ -123,7 +123,7 @@ const Contact: React.FC = () => {
                 transition={{ delay: 0.4 }}
               >
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm text-gray-400 uppercase font-bold tracking-wider">Name</label>
+                  <label htmlFor="name" className="text-sm text-gray-400 uppercase font-bold tracking-wider">Nome</label>
                   <input
                     type="text"
                     id="name"
@@ -132,12 +132,12 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    placeholder="your name"
+                    placeholder="seu nome"
                     className="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all duration-300"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm text-gray-400 uppercase font-bold tracking-wider">Email</label>
+                  <label htmlFor="email" className="text-sm text-gray-400 uppercase font-bold tracking-wider">E-mail</label>
                   <input
                     type="email"
                     id="email"
@@ -146,7 +146,7 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="your email"
+                    placeholder="seu e-mail"
                     className="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all duration-300"
                   />
                 </div>
@@ -159,7 +159,7 @@ const Contact: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
               >
-                <label htmlFor="message" className="text-sm text-gray-400 uppercase font-bold tracking-wider">Message</label>
+                <label htmlFor="message" className="text-sm text-gray-400 uppercase font-bold tracking-wider">Mensagem</label>
                 <textarea
                   rows={4}
                   id="message"
@@ -167,7 +167,7 @@ const Contact: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  placeholder="Tell me about your project..."
+                  placeholder="Conte sobre o seu projeto..."
                   className="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-purple-500 focus:bg-white/10 transition-all duration-300 resize-none"
                 ></textarea>
               </motion.div>
@@ -180,17 +180,17 @@ const Contact: React.FC = () => {
                 {status === 'loading' && <Loader2 size={20} className="animate-spin" />}
                 {status === 'success' && <CheckCircle size={20} />}
                 {status === 'error' && <AlertCircle size={20} />}
-                {status === 'idle' && 'Send Message'}
-                {status === 'loading' && 'Sending...'}
-                {status === 'success' && 'Sent!'}
-                {status === 'error' && 'Error. Try again.'}
+                {status === 'idle' && 'Enviar Mensagem'}
+                {status === 'loading' && 'Enviando...'}
+                {status === 'success' && 'Enviado!'}
+                {status === 'error' && 'Erro. Tente novamente.'}
               </button>
             </form>
           </motion.div>
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} Ricardo Macedo. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Ricardo Macedo. Todos os direitos reservados.</p>
           <div className="flex gap-6">
             <a
               href="https://github.com/maccedofilho"

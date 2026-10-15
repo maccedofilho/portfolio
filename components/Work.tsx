@@ -18,38 +18,38 @@ const Work: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "Custom Systems",
-      category: "Full Stack Development",
-      description: "10+ tailor-made web systems that centralize internal processes, connect teams and simplify day-to-day operations. APIs, business rules and integrations designed for each workflow, with ongoing maintenance and support.",
+      title: "Sistemas Sob Medida",
+      category: "Desenvolvimento Full Stack",
+      description: "Mais de 10 sistemas web sob medida que centralizam processos internos, integram equipes e simplificam a operação do dia a dia. APIs, regras de negócio e integrações pensadas para cada fluxo, com manutenção e suporte contínuos.",
       tags: ["Java", "Spring Boot", "NestJS", "React", "Angular", "PostgreSQL", "MySQL"]
     },
     {
       id: 2,
-      title: "Study SaaS",
-      category: "Study Platform",
-      description: "SaaS platform for studying and ENEM/university entrance exam prep, with practice tests and performance tracking. Turborepo monorepo with a Next.js front end and a NestJS API backed by PostgreSQL, Prisma, Redis and BullMQ, containerized with Docker.",
+      title: "SaaS de Estudos",
+      category: "Plataforma de Estudos",
+      description: "Plataforma SaaS para estudos e preparação para o ENEM e vestibulares, com simulados e acompanhamento de desempenho. Monorepo com Turborepo, front-end em Next.js e API em NestJS com PostgreSQL, Prisma, Redis e BullMQ, containerizada com Docker.",
       tags: ["Next.js", "NestJS", "TypeScript", "PostgreSQL", "Prisma", "Redis", "BullMQ", "Turborepo"]
     },
     {
       id: 3,
-      title: "Security SaaS",
-      category: "Security Platform",
-      description: "Multi-tenant SaaS for automated vulnerability scanning across source code, web applications, REST/GraphQL APIs and infrastructure, returning actionable findings with remediation guidance. Java 21 microservices orchestrated over Kafka, a React dashboard and CI security gates.",
+      title: "SaaS de Segurança",
+      category: "Plataforma de Segurança",
+      description: "SaaS multi-tenant de varredura automatizada de vulnerabilidades em código-fonte, aplicações web, APIs REST/GraphQL e infraestrutura, com resultados acionáveis e orientações de correção. Microsserviços em Java 21 orquestrados via Kafka, dashboard em React e gates de segurança no CI.",
       tags: ["Java 21", "Spring Boot 3", "Kafka", "React", "TypeScript", "Docker", "Helm"],
       link: "https://github.com/maccedofilho/virtualrift"
     },
     {
       id: 4,
-      title: "AI Bots",
-      category: "Automation",
-      description: "WhatsApp and Telegram bots with AI capabilities that handle conversations and operational tasks automatically, integrated with the systems and data each business already runs on.",
+      title: "Bots com IA",
+      category: "Automação",
+      description: "Bots para WhatsApp e Telegram com recursos de IA que conduzem conversas e executam tarefas operacionais automaticamente, integrados aos sistemas e dados que cada negócio já utiliza.",
       tags: ["WhatsApp", "Telegram", "LLMs", "n8n", "Node.js"]
     },
     {
       id: 5,
       title: "Landing Pages",
-      category: "Web Development",
-      description: "10+ conversion-driven landing pages built and launched to present services and turn visitors into clients. Fast, SEO-friendly layouts with fluid motion, deployed on Vercel.",
+      category: "Desenvolvimento Web",
+      description: "Mais de 10 landing pages focadas em conversão, criadas e publicadas para apresentar serviços e transformar visitantes em clientes. Layouts rápidos, otimizados para SEO e com animações fluidas, publicados na Vercel.",
       tags: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vercel"]
     }
   ];
@@ -71,7 +71,7 @@ const Work: React.FC = () => {
           className="absolute top-0 right-0 left-0 bottom-0 flex items-center justify-center pointer-events-none select-none z-0"
       >
           <h1 className="text-[12rem] md:text-[24rem] font-bold text-white opacity-[0.03] tracking-tighter whitespace-nowrap">
-              WORK
+              PROJETOS
           </h1>
       </motion.div>
 
@@ -86,14 +86,14 @@ const Work: React.FC = () => {
         >
           <div>
              <h2 className="text-sm font-mono text-gray-400 mb-4 tracking-widest uppercase">
-               Selected Works
+               Trabalhos Selecionados
              </h2>
              <h3 className="text-5xl md:text-6xl font-bold text-white tracking-tight">
-               Engineering <span className="text-gray-500">Cases</span>
+               Casos de <span className="text-gray-500">Engenharia</span>
              </h3>
           </div>
           <p className="text-gray-400 max-w-sm text-right hidden md:block">
-            Click to explore technical details.
+            Clique para explorar os detalhes técnicos.
           </p>
         </motion.div>
 
@@ -199,7 +199,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
                     className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-purple-400 transition-colors duration-300"
                   >
                     <Github size={16} aria-hidden="true" />
-                    View on GitHub
+                    Ver no GitHub
                   </a>
                 )}
               </div>

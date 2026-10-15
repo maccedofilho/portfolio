@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
               Ricardo Macedo
             </motion.h2>
             <motion.h1 
-              className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 mix-blend-difference"
+              className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6 mix-blend-difference"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                Software Engineer
+                Engenheiro de Software
               </motion.span>
             </motion.h1>
             <motion.p 
@@ -54,20 +54,20 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              4+ years shipping production web apps, from architecture to deploy. I build AI-powered applications, bots and automations that solve real business problems.
+              +4 anos entregando aplicações web em produção, da arquitetura ao deploy. Crio aplicações com IA, bots e automações que resolvem problemas reais de negócio.
             </motion.p>
 
             <motion.div 
-              className="flex items-center gap-4 mb-12"
+              className="flex flex-wrap items-center gap-4 mb-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              <a href="#work" className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 hover:scale-105 transition-all duration-300">
-                View Projects
+              <a href="#work" className="px-5 sm:px-8 py-3 whitespace-nowrap bg-white text-black font-bold rounded-full hover:bg-gray-200 hover:scale-105 transition-all duration-300">
+                Ver Projetos
               </a>
-              <a href="#contact" className="px-8 py-3 border border-gray-700 rounded-full hover:border-purple-500 hover:text-purple-500 hover:scale-105 transition-all duration-300">
-                Contact Me
+              <a href="#contact" className="px-5 sm:px-8 py-3 whitespace-nowrap border border-gray-700 rounded-full hover:border-purple-500 hover:text-purple-500 hover:scale-105 transition-all duration-300">
+                Entre em Contato
               </a>
             </motion.div>
 
@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
             >
                <SocialIcon icon={<Linkedin size={20} />} href="https://www.linkedin.com/in/ricardomacedofilho/" label="LinkedIn" />
                <SocialIcon icon={<Github size={20} />} href="https://github.com/maccedofilho" label="GitHub" />
-               <SocialIcon icon={<Mail size={20} />} href="mailto:ricardomacedodev@gmail.com" label="Email" />
+               <SocialIcon icon={<Mail size={20} />} href="mailto:ricardomacedodev@gmail.com" label="E-mail" />
             </motion.div>
           </motion.div>
         </div>
@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ delay: 1, duration: 2, repeat: Infinity }}
       >
-        <span className="text-xs uppercase tracking-widest">Scroll</span>
+        <span className="text-xs uppercase tracking-widest">Role</span>
         <ArrowDown size={16} />
       </motion.div>
     </section>
