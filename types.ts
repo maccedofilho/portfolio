@@ -5,3 +5,13 @@ export interface Project {
   description: string;
   tags: string[];
 }
+
+export interface ExperienceItem {
+  id: number;
+  company: string;
+  role: string;
+  type: string;
+  period: string;
+  highlights: string[];
+  tags: string[];
+}

@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              Full Stack with product vision. I build robust solutions that solve real problems and scale with the business.
+              4+ years shipping production web apps, from architecture to deploy. I build AI-powered applications, bots and automations that solve real business problems.
             </motion.p>
 
             <motion.div 

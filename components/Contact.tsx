@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
                 <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
                     <MapPin size={18} />
                 </div>
-                <span className="text-lg">Remote / Brazil</span>
+                <span className="text-lg">Joinville, SC, Brazil · Remote</span>
               </div>
             </div>
           </motion.div>

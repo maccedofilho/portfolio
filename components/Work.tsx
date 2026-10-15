@@ -24,24 +24,38 @@ const Work: React.FC = () => {
     },
     {
       id: 2,
-      title: "Custom Systems",
-      category: "Full Stack Development",
-      description: "Tailor-made systems built to fit specific business workflows. Clean architecture, type-safe APIs and modular design that adapts as the product evolves, prioritizing maintainability and real operational impact.",
-      tags: ["TypeScript", "React", "Node.js", "PostgreSQL", "Docker"]
+      title: "AI Applications",
+      category: "AI Engineering",
+      description: "Web applications and features powered by large language models, plugged straight into business workflows. LLM integrations and automation flows that take repetitive work off people's hands and turn data into decisions.",
+      tags: ["LLMs", "LangChain", "n8n", "Node.js", "TypeScript"]
     },
     {
       id: 3,
+      title: "AI Bots",
+      category: "Automation",
+      description: "WhatsApp and Telegram bots with AI capabilities that handle conversations and operational tasks automatically, integrated with the systems and data each business already runs on.",
+      tags: ["WhatsApp", "Telegram", "LLMs", "n8n", "Node.js"]
+    },
+    {
+      id: 4,
+      title: "Custom Systems",
+      category: "Full Stack Development",
+      description: "10+ tailor-made web systems that centralize internal processes, connect teams and simplify day-to-day operations. APIs, business rules and integrations designed for each workflow, with ongoing maintenance and support.",
+      tags: ["Java", "Spring Boot", "NestJS", "React", "Angular", "PostgreSQL", "MySQL"]
+    },
+    {
+      id: 5,
       title: "Security SaaS",
       category: "Security Engineering",
       description: "Production-ready security platform delivering authentication, authorization and account protection as a service. RBAC, refresh token rotation, rate limiting and account lockout, fully documented and ready to integrate.",
       tags: ["Java 21", "Spring Boot 3", "Security", "JWT"]
     },
     {
-      id: 4,
+      id: 6,
       title: "Landing Pages",
       category: "Web Development",
-      description: "Conversion-driven landing pages engineered for speed, SEO and clarity. Pixel-tight layouts, fluid motion and Core Web Vitals optimization to turn traffic into qualified leads.",
-      tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"]
+      description: "10+ conversion-driven landing pages built and launched to present services and turn visitors into clients. Fast, SEO-friendly layouts with fluid motion, deployed on Vercel.",
+      tags: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vercel"]
     }
   ];
 

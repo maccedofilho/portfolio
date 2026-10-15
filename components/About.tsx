@@ -140,7 +140,7 @@ const About: React.FC = () => {
            viewport={{ once: true }}
            transition={{ delay: 0.5, duration: 0.6 }}
          >
-           +4 anos of Full Stack development experience, focused on building solid and well-architected solutions. Software Engineering student, turning coffee into clean, scalable, production-ready code.
+           4+ years of Full Stack experience building, evolving and maintaining web apps in production, now with a strong focus on AI. Software Engineering student, turning coffee into clean, scalable, production-ready code.
          </motion.p>
       </motion.div>
 
