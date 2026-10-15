@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Languages } from 'lucide-react';
 import { ExperienceItem } from '../types';
 
 const experiences: ExperienceItem[] = [
@@ -35,15 +34,6 @@ const experiences: ExperienceItem[] = [
     ],
     tags: ["Java", "Spring Boot", "Node.js", "NestJS", "React", "Next.js", "Angular", "PostgreSQL", "MySQL", "LLMs"]
   }
-];
-
-const skills = [
-  { group: "Back-end", items: ["Java", "Spring Boot", "Node.js", "NestJS", "TypeScript", "REST APIs"] },
-  { group: "Front-end", items: ["React", "Next.js", "Angular", "JavaScript", "HTML5", "CSS3"] },
-  { group: "AI & Automation", items: ["LLMs", "LangChain", "n8n", "WhatsApp & Telegram bots", "Claude Code", "Codex"] },
-  { group: "Databases", items: ["PostgreSQL", "MySQL", "SQL", "Relational modeling"] },
-  { group: "DevOps & Tools", items: ["Docker", "Git", "GitHub", "Postman", "DigitalOcean", "Vercel", "CI/CD"] },
-  { group: "Architecture", items: ["OOP", "SOLID", "Clean Code", "Clean Architecture", "Microservices"] }
 ];
 
 const Experience: React.FC = () => {
@@ -123,64 +113,6 @@ const Experience: React.FC = () => {
               </div>
             </motion.div>
           ))}
-        </div>
-
-        <div className="border-t border-white/10 pt-16 grid grid-cols-1 md:grid-cols-12 gap-12">
-
-          <motion.div
-            className="md:col-span-4 space-y-10"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <div>
-              <h4 className="text-sm font-mono text-gray-400 mb-6 tracking-widest uppercase flex items-center gap-2">
-                <GraduationCap size={16} aria-hidden="true" /> Education
-              </h4>
-              <p className="text-xl font-semibold text-white mb-1">B.Sc. in Software Engineering</p>
-              <p className="text-gray-400 mb-2">Centro Universitário Católica de Santa Catarina</p>
-              <span className="font-mono text-sm text-purple-400">2025 — Expected Dec 2028</span>
-            </div>
-
-            <div>
-              <h4 className="text-sm font-mono text-gray-400 mb-6 tracking-widest uppercase flex items-center gap-2">
-                <Languages size={16} aria-hidden="true" /> Languages
-              </h4>
-              <p className="text-gray-300">Portuguese <span className="text-gray-500">— Native</span></p>
-              <p className="text-gray-300">English <span className="text-gray-500">— Intermediate</span></p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="md:col-span-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          >
-            <h4 className="text-sm font-mono text-gray-400 mb-6 tracking-widest uppercase">
-              Tech Stack
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {skills.map((skill) => (
-                <div key={skill.group}>
-                  <p className="text-white font-semibold mb-3">{skill.group}</p>
-                  <div className="flex gap-2 flex-wrap">
-                    {skill.items.map((item) => (
-                      <span
-                        key={item}
-                        className="px-3 py-1 text-xs font-mono border border-white/20 rounded-full text-gray-300"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
         </div>
       </div>
     </section>
