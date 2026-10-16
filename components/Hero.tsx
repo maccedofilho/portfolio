@@ -38,14 +38,14 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             >
-              Full Stack <br />
-              <motion.span 
+              Engenheiro de Software <br />
+              <motion.span
                 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-600"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                Engenheiro de Software
+                Full Stack
               </motion.span>
             </motion.h1>
             <motion.p 
@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              +4 anos entregando aplicações web em produção, da arquitetura ao deploy. Crio aplicações com IA, bots e automações que resolvem problemas reais de negócio.
+              Há mais de 4 anos desenvolvo aplicações web em produção, da arquitetura ao deploy. Hoje combino engenharia sólida e inteligência artificial para criar sistemas, bots e automações que geram resultado real para o negócio.
             </motion.p>
 
             <motion.div 
